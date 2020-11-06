@@ -49,10 +49,6 @@ class MainActivity : AppCompatActivity() {
                     override fun afterTextChanged(s: Editable?) {
                         if (s != null) {
                             if (s.contains("Wayne")) {
-                                //linear.setBackgroundColor(Color.MAGENTA);
-                               // et1.setTextColor(Color.BLACK);
-                                //boton.setTextColor(Color.BLACK);
-                                //boton.setBackgroundColor(Color.YELLOW);
                                 batman.isVisible = true
                             } else if (s.contains("joker")) {
                                 linear.setBackgroundColor(Color.RED);
