@@ -13,11 +13,11 @@ import androidx.core.view.isVisible
 
 class MainActivity : AppCompatActivity() {
 
-    val boton = findViewById<Button>(R.id.boton);
-    val et1 = findViewById<EditText>(R.id.et1);
-    val linear = findViewById<LinearLayout>(R.id.linear)
-    val batman = findViewById<ImageView>(R.id.batman)
-    var click = 0;
+    val boton: Button = findViewById<Button>(R.id.boton);
+    val et1: EditText = findViewById<EditText>(R.id.et1);
+    val linear: LinearLayout = findViewById<LinearLayout>(R.id.linear)
+    val batman: ImageView = findViewById<ImageView>(R.id.batman)
+    private var click = 0;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
