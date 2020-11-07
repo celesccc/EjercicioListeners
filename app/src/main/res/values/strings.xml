@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">EjercicioListeners</string>
     <string name="botonComenzar">COMENZAR</string>
+    <string name="editText">Introduce tu nombre</string>
 </resources>
