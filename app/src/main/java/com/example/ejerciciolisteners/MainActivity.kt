@@ -21,51 +21,14 @@ class MainActivity : AppCompatActivity() {
         val et1: EditText = findViewById<EditText>(R.id.et1);
         val linear: LinearLayout = findViewById<LinearLayout>(R.id.linear)
         val batman: ImageView = findViewById<ImageView>(R.id.batman)
-        var click = 0
+        var click: Int = 0
 
         boton.setOnClickListener {
-            click++;
+            click++
             if (click % 2 != 0) {
                 et1.isEnabled = true
                 et1.isVisible = true
                 boton.text = "FINALIZAR"
-                if (et1.isFocused){
-                    et1.run {
-                        this.hint = ""
-                    }
-                }
-                et1.addTextChangedListener(object : TextWatcher {
-                    override fun beforeTextChanged(
-                        s: CharSequence?,
-                        start: Int,
-                        count: Int,
-                        after: Int
-                    ) {
-                    }
-
-                    override fun onTextChanged(
-                        s: CharSequence?,
-                        start: Int,
-                        before: Int,
-                        count: Int
-                    ) {
-                    }
-
-                    override fun afterTextChanged(s: Editable?){
-                        if (s != null) {
-                            if (s.contains("Wayne")) {
-                                batman.isVisible = true
-                            } else if (s.contains("joker")) {
-                                linear.setBackgroundColor(Color.GRAY);
-                                et1.setTextColor(Color.GREEN);
-                                et1.setBackgroundColor(Color.parseColor("#B51414"))
-                                boton.setTextColor(Color.BLACK);
-                                boton.setBackgroundColor(Color.YELLOW);
-                                batman.isVisible = false
-                            }
-                        }
-                    }
-                })
             } else {
                 et1.isEnabled = false
                 et1.isVisible = false
@@ -79,5 +42,46 @@ class MainActivity : AppCompatActivity() {
                 boton.setBackgroundColor(Color.parseColor("#4A042F"));
             }
         }
+
+        et1.setOnFocusChangeListener { v, hasFocus ->
+            if (hasFocus) {
+                et1.hint = ""
+            } else {
+                et1.hint = "Introduce tu nombre"
+            }
+        }
+
+        et1.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(
+                    s: CharSequence?,
+                    start: Int,
+                    count: Int,
+                    after: Int
+            ) {
+            }
+
+            override fun onTextChanged(
+                    s: CharSequence?,
+                    start: Int,
+                    before: Int,
+                    count: Int
+            ) {
+            }
+
+            override fun afterTextChanged(s: Editable?){
+                if (s != null) {
+                    if (s.contains("Wayne")) {
+                        batman.isVisible = true
+                    } else if (s.contains("joker")) {
+                        linear.setBackgroundColor(Color.GRAY);
+                        et1.setTextColor(Color.GREEN);
+                        et1.setBackgroundColor(Color.parseColor("#B51414"))
+                        boton.setTextColor(Color.BLACK);
+                        boton.setBackgroundColor(Color.YELLOW);
+                        batman.isVisible = false
+                    }
+                }
+            }
+        })
     }
 }
